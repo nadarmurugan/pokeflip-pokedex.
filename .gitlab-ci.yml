@@ -1,0 +1,17 @@
+stages:
+  - build
+
+variables:
+  IMAGE_NAME: $DOCKER_USER/pokeflip:v1
+
+build:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - docker login -u $DOCKER_USER -p $DOCKER_PASS
+    - docker build -t $IMAGE_NAME .
+    - docker push $IMAGE_NAME
+  only:
+    - main
