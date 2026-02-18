@@ -2,7 +2,7 @@ stages:
   - build
 
 variables:
-  IMAGE_NAME: $DOCKER_USER/pokeflip:v1
+IMAGE_NAME: $DOCKER_USER/pokeflip:latest
 
 build:
   stage: build
